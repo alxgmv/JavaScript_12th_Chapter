@@ -1,13 +1,17 @@
-$( '#ball' ).on( 'click', function () {
-  let ball = $( '#ball' );
-  let className = $( '#ball' ).attr('class')
-  if (className == 'ball') {
-    ball.switchClass( 'ball','ball_clicked', 500, 'easeInOutQuad' );
-    ball.css({ 'top': Math.random()*($('.field').height() - ball.height()) });
+let ball = $( '.ball' );
+let distance = $('.field').width() - ball.width();
 
-  } else {
-    ball.switchClass( 'ball_clicked','ball', 500, 'easeInOutQuad' );
-    ball.css({ 'top': Math.random()*($('.field').height() - ball.height()) });
+ball.on( 'click', function () {
+  if (ball.css('left', 0) ) {
+    ball.animate({
+      left: distance,
+      top: Math.random()*($('.field').height() - ball.height())
+    },200);
+  };
+  if (ball.css('left', distance)) {
+    ball.animate({
+      left:ball.width(),
+      top: Math.random()*($('.field').height() - ball.height())
+    },200);
   }
-  alert('Goal!');
 });
