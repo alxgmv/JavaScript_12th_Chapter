@@ -10,7 +10,7 @@ ball.on( 'click', function () {
   };
   if (ball.css('left', distance)) {
     ball.animate({
-      left:ball.width(),
+      left:0,
       top: Math.random()*($('.field').height() - ball.height())
     },200);
   }
