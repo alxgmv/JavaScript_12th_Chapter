@@ -6,14 +6,20 @@ ball.on( 'click', function () {
     ball.animate({
       left: distance,
       top: Math.random()*($('.field').height() - ball.height())
-    },300);
+    },300, function(){
+      if (ball.css('top') >='33%' && ball.css('top') <='66%'){
+        alert('Goal!');
+      }
+    });
   } else {
     ball.animate({
       left:0,
       top: Math.random()*($('.field').height() - ball.height())
-    },300);
+    },300, function() {
+      if (ball.css('top') >='33%' && ball.css('top') <='66%'){
+        alert('Goal!');
+      }
+    });
   }
-  if (ball.css('top') >='200px' && ball.css('top') <='300px'){
-    alert('Goal!');
-  }
+
 });
